@@ -34,9 +34,11 @@ class Owner:
 
     def get_sorted_pets(self):
         # sorted_list = list()
-        for pet in Pet.all:
-            return sorted(Pet.all, key=pet.name.casefold())
+        # for pet in Pet.all: iteration is unnecessary with lambda
             # breakpoint()
+        return sorted(Pet.all, key=lambda pet: pet.name.casefold())
+            # return sorted(Pet.all, key=pet.name.casefold())
+            # Typerror is as a result of calling casefold(); treating pet.name as a function which it is not...
         # return sorted(Pet.all, key=pet.name.lower())
 
-pet = Pet("Fido", "dog")
+# pet = Pet("Fido", "dog")
